@@ -13,3 +13,7 @@ Este proyecto es una tienda en línea creada como parte del aprendizaje y desarr
 - **HTML**: Estructura básica de la página.
 - **CSS**: Diseño y estilo, incluyendo animaciones y adaptabilidad móvil.
 - **JavaScript**: Funcionalidad dinámica para la interacción con el carrito de compras y otras acciones.
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Si deseas contribuir ya que aun no me manejo bien en esta plataforma y siempre está la proactividad de aprender:
