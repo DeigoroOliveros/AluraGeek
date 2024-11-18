@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos Geeks</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Tienda Productos Geeks ALURA LATAM</h1>
+    <div class="hearts">
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+    </div>
+  </header>
+
+  <!-- Modal para mostrar detalles del producto -->
+  <div id="product-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img id="modal-image" src="" alt="Imagen del producto">
+        <h3 id="modal-name">Nombre del producto</h3>
+        <p id="modal-price">Precio: $0</p>
+        <a id="modal-link" href="#" target="_blank">Ver imagen completa</a>
+    </div>
+</div>
+
+
+  <main>
+    <section class="product-list">
+      <h2>Catálogo</h2>
+      <div id="products" class="products"></div>
+    </section>
+    
+    <aside class="sidebar">
+      <h2>Mis Productos</h2>
+      <ul id="cart" class="cart"></ul>
+      <div class="sidebar-actions">
+        <button id="buy-btn" class="action-btn">Comprar</button>
+        <button id="clear-btn" class="action-btn">Vaciar Carro</button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Contenedor con los datos de los productos / se puede agregar más-->
+  <div id="product-data" style="display: none;">
+    <div data-id="1" data-name="Figura Funko Pop" data-price="10.99" data-image="Imagenes\funko.jpg"></div>
+    <div data-id="2" data-name="Camiseta Retro" data-price="11.99" data-image="Imagenes\camisa.jpg"></div>
+    <div data-id="3" data-name="Taza Geek SEGA" data-price="12.99" data-image="Imagenes\taza.jpg"></div>
+    <div data-id="4" data-name="Póster Retro" data-price="13.99" data-image="Imagenes\poster.jpg"></div>
+    <div data-id="6" data-name="Mousepad Gamer" data-price="14.99" data-image="Imagenes\mousepad.jpg"></div>
+    <div data-id="7" data-name="Consola Retro" data-price="15.99" data-image="Imagenes\consola.jpg"></div>
+    <div data-id="8" data-name="R2D2 Pequeño" data-price="16.99" data-image="Imagenes\r2d2.jpg"></div>
+    <div data-id="9" data-name="Lámpara LED" data-price="17.99" data-image="Imagenes\lampara.jpg"></div>
+    <div data-id="10" data-name="Figura LEGO" data-price="18.99" data-image="Imagenes\pikachu.jpg"></div>
+    <div data-id="11" data-name="LLavero Kirby" data-price="19.99" data-image="Imagenes\llavero.jpg"></div>
+    <div data-id="12" data-name="Vaso Rick y morty" data-price="20.99" data-image="Imagenes\vaso.jpg"></div>
+    <div data-id="13" data-name="Espada Minecraft" data-price="21.99" data-image="Imagenes\espada.jpg"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+ 
+
+</html>
