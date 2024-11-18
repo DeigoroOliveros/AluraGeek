@@ -1,4 +1,4 @@
-/* General Styles */
+/* Estilos Generales */
 body {
   font-family: 'Press Start 2P', monospace;
   background-color: #1a1a2e;
@@ -60,7 +60,7 @@ main {
   overflow: hidden;
 }
 
-/* Product List */
+/* LISTA DE PRODUCTOS */
 .product-list {
   flex: 3.3;
   background-color: #16213e;
