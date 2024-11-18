@@ -26,6 +26,7 @@ header {
 header h1 {
   font-size: 28px;
   margin: 0;
+  word-wrap: break-word; /* Para asegurarse que el texto no se salga de la pantalla */
 }
 
 .hearts {
@@ -50,7 +51,6 @@ header h1 {
   }
 }
 
-
 /* MAIN CATÁLOGO */
 main {
   display: flex;
@@ -58,6 +58,7 @@ main {
   gap: 20px;
   height: calc(100vh - 100px); /* Ocupa el resto de la pantalla */
   overflow: hidden;
+  flex-wrap: wrap; /* Permite que los elementos se acomoden */
 }
 
 /* LISTA DE PRODUCTOS */
@@ -211,6 +212,7 @@ main {
 }
 
 
+/* Botones del carrito */
 .cart-item button {
   padding: 8px 12px;
   margin: 4px;
@@ -263,4 +265,41 @@ footer {
   color: #fff;
   font-family: '8bit', monospace;
   margin-top: 30px; /* Se asegura que no se sobreponga con el contenido */
+}
+
+/* Media Queries para móviles */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; /* Los corazones y el título estarán encima */
+    text-align: center;
+    gap: 10px;
+  }
+
+  .products {
+    grid-template-columns: 1fr; /* Los productos estarán en una sola columna */
+  }
+
+  main {
+    flex-direction: column; /* El catálogo y el sidebar estarán uno debajo del otro */
+  }
+
+  .sidebar {
+    flex: none;
+    width: 100%; /* El sidebar ocupa el 100% en pantallas pequeñas */
+    margin-top: 20px;
+  }
+
+  .product button {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .cart-item button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .modal-content {
+    width: 100%;
+  }
 }
