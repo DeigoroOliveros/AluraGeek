@@ -81,6 +81,10 @@ function renderCart() {
     `;
     cartContainer.appendChild(cartItem);
   });
+
+  // Actualizar el total de precios en el carrito
+  updateTotalPrice();
+  
 }
 
 // Función para aumentar la cantidad de un producto en el carrito
@@ -92,19 +96,43 @@ function increaseQuantity(productId) {
   }
 }
 
+// Función para actualizar el total de precios
+function updateTotalPrice() {
+  const totalPrice = cart.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0
+  );
+
+  // Actualizar el contenido del elemento #total-price
+  const totalPriceElement = document.getElementById("total-price");
+  if (totalPriceElement) {
+    totalPriceElement.textContent = totalPrice.toFixed(2);
+  }
+}
+
+// Función para aumentar la cantidad de un producto en el carrito
+function increaseQuantity(productId) {
+  const cartItem = cart.find((item) => item.id === productId);
+  if (cartItem) {
+    cartItem.quantity += 1; // Aumentar la cantidad
+    renderCart(); // Volver a renderizar el carrito
+  }
+}
+
 // Función para disminuir la cantidad de un producto en el carrito
 function decreaseQuantity(productId) {
-  const cartItem = cart.find(item => item.id === productId);
+  const cartItem = cart.find((item) => item.id === productId);
   if (cartItem && cartItem.quantity > 1) {
     cartItem.quantity -= 1; // Disminuir la cantidad
-    renderCart();  // Volver a renderizar el carrito
+    renderCart(); // Volver a renderizar el carrito
+  } else if (cartItem && cartItem.quantity === 1) {
+    removeFromCart(productId); // Si llega a 1, lo eliminamos
   }
 }
 
 // Función para eliminar un producto del carrito
 function removeFromCart(productId) {
-  // Filtrar el carrito para eliminar el producto con el id especificado
-  cart = cart.filter(item => item.id !== productId);
+  cart = cart.filter((item) => item.id !== productId); // Filtrar para eliminar
   renderCart(); // Actualizar la visualización del carrito
 }
 
@@ -154,52 +182,4 @@ window.addEventListener("click", (event) => {
 // Inicializar productos desde el HTML y renderizarlos
 loadProductsFromHTML();
 renderProducts();
-
-
-
-
-
-
-
-
-
-
-
-// Función para renderizar los productos y mostrar el total
-function renderProducts() {
-  productsContainer.innerHTML = ""; // Limpiar el contenedor
-  let totalPrice = 0; // Variable para almacenar la suma total
-
-  products.forEach((product) => {
-    const productElement = document.createElement("div");
-    productElement.className = "product";
-    productElement.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <h3>${product.name}</h3>
-      <p>Precio: $${product.price}</p>
-      <button onclick="addToCart(${product.id})">Agregar a Lista</button>
-    `;
-
-    // Asociar evento para abrir el modal al hacer clic en la imagen
-    const productImage = productElement.querySelector("img");
-    productImage.addEventListener("click", () => openModal(product));
-
-    // Sumar el precio de cada producto al total
-    totalPrice += product.price;
-
-    productsContainer.appendChild(productElement);
-  });
-
-  // Crear o actualizar el contenedor del total
-  const totalElement = document.getElementById("total-price");
-  if (!totalElement) {
-    const totalContainer = document.createElement("div");
-    totalContainer.id = "total-price-container";
-    totalContainer.innerHTML = `<p>Total de productos: $<span id="total-price">${totalPrice.toFixed(2)}</span></p>`;
-    productsContainer.appendChild(totalContainer);
-  } else {
-    totalElement.textContent = totalPrice.toFixed(2);
-  }
-}
-
 
